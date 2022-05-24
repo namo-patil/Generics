@@ -1,7 +1,16 @@
 package com.bridgelabz.generics;
 
-public class FindMaxValue {
-    private static <T extends Comparable> void maxValue(T x, T y, T z) {
+public class FindMaxValue<T extends Comparable<T>> {
+    T x, y, z;
+
+    public FindMaxValue(T x, T y, T z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    private static <T extends Comparable<T>> T maxValue(T x, T y, T z) {
+
         T maximumValue = x;
         if (y.compareTo(maximumValue) > 0) {
             maximumValue = y;
@@ -10,6 +19,7 @@ public class FindMaxValue {
             maximumValue = z;
         }
         System.out.println("Maximum Value is : " + maximumValue);
+        return maximumValue;
     }
 
     public static void main(String[] args) {
